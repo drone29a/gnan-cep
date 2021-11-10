@@ -4,7 +4,8 @@ This is an implementation of the GNAN model used in:
 
 ```
 Revelle, Matt, Carlotta Domeniconi, and Ben Gelman.
-"Group-Node Attention for Community Evolution Prediction." arXiv preprint arXiv:2107.04522 (2021).
+"Group-Node Attention for Community Evolution Prediction."
+arXiv preprint arXiv:2107.04522 (2021).
 ```
 
 ## Notes
