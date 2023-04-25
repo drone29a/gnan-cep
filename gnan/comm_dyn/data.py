@@ -1,4 +1,20 @@
+import os.path
 import torch as t
+from torch import Tensor
+from torch.utils.data import Dataset
+
+class TensorListDataset(Dataset):
+    def __init__(self, xs, ys):
+        super(TensorListDataset, self).__init__()
+        self.xs = xs
+        self.ys = ys
+        assert len(xs) == len(ys)
+
+    def __getitem__(self, idx):
+        return (self.xs[idx], self.ys[idx])
+
+    def __len__(self):
+        return len(self.xs)
 
 def calc_pos_weight(labels: Tensor) -> Tensor:
     """Provided a 2d tensor of one- or multi-hot vectors,
