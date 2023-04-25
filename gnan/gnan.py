@@ -127,6 +127,19 @@ class GNAN(t.nn.Module):
         """
         (X_m, X_dnbor, x_g) = X
 
+        # Drop unused features
+        x_g = x_g[2:]
+
+        X_m_ = X_m.transpose(0, 1)
+        X_m_prev_degs = X_m_[3:5]
+        X_m_curr_degs = X_m_[8:]
+        X_m = t.cat((X_m_prev_degs, X_m_curr_degs)).transpose(0, 1)
+
+        X_dnbor_ = X_dnbor.transpose(0, 1)
+        X_dnbor_prev_degs = X_dnbor_[3:5]
+        X_dnbor_curr_degs = X_dnbor_[8:]
+        X_dnbor = t.cat((X_dnbor_prev_degs, X_dnbor_curr_degs)).transpose(0, 1)
+
         num_members = X_m.shape[0]
         num_dnbors = X_dnbor.shape[0]
 
